@@ -22,7 +22,7 @@
         transition: 0.5s;
         min-height: 50px;
         transition: 0.5s;
-
+        color:white;
         label {
             position: absolute;
             left: 30px;
@@ -38,22 +38,38 @@
                 cursor: pointer;
             }
         }
-
+        button {
+            color: rgba(255, 0, 0, 0.47);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        &:hover button {
+            opacity: 1;
+            transition: 0.3s;
+        }
         .deleteTask {
             position: absolute;
             right: 20px;
         }
     }
-
+    
     .completed-task {
         background-color: #66eb3e50;
-        color: white;
+        color: rgba(255, 255, 255, 0.302);
         transition: 0.5s;
+        button {
+            color: rgba(255, 0, 0, 0.47);
+        }
     }
 
     .mat-mdc-list-base {
         display: flex;
         flex-direction: column;
         gap: 8px;
+    }
+    .containerCount {
+        display: flex;
+        color: white;
+        justify-content: center;
     }
 }

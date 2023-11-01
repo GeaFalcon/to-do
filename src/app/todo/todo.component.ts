@@ -86,4 +86,12 @@ export class TodoComponent {
         return this.tasks;
     }
   }
+
+  get totalTasksCount(): number {
+    return this.tasks.length;
+  }
+  
+  get pendingTasksCount(): number {
+    return this.tasks.filter(task => !task.completed).length;
+  }
 }
