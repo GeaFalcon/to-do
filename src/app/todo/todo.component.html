@@ -1,0 +1,35 @@
+<div class="todo-container">
+    <h2>Tareas</h2>
+    <mat-form-field>
+        <mat-label>Filtrar</mat-label>
+        <mat-select [(value)]="filterOption">
+            <mat-option value="all">Todos los elementos</mat-option>
+            <mat-option value="pending">Elementos pendientes</mat-option>
+            <mat-option value="completed">Elementos completados</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <form (submit)="addTask()">
+        <mat-form-field>
+            <input matInput placeholder="Nueva tarea" [(ngModel)]="newTask" name="newTask">
+        </mat-form-field>
+        <button mat-raised-button type="submit">Añadir</button>
+    </form>
+
+
+
+    <mat-list >
+        <mat-list-item *ngFor="let task of filteredTasks; let i = index">
+            <div cdkDrag class="elementWrapper" [ngClass]="{'completed-task': task.completed}">
+                <label class="task-label" >
+                    <input type="checkbox" [(ngModel)]="task.completed" (click)="toggleCompletion(task)">
+                </label>
+                {{ task.text }}
+                <button class="deleteTask" mat-icon-button (click)="removeTask(task)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </mat-list-item>
+    </mat-list>
+
+</div>
